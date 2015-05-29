@@ -49,7 +49,7 @@ Add django_placeholdit routes into your urls.py:
 
     urlpatterns = patterns(
         # ...
-        url(r'^placeholders', include('django_placeholdit.urls', name='placeholdit')),
+        url(r'^placeholders', include('django_placeholdit.urls', namespace='placeholdit')),
     )
 
 Configuration
