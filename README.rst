@@ -20,19 +20,19 @@ Features
 
 Installation
 ------------
-Install from PyPi:
 
-You can pip install the app directly from GitHub:
+You can pip install the app from PyPi (recommended):
+
+::
+
+    $ pip install django-placeholdit
+
+or GitHub:
 
 ::
 
     $ pip install git+git://github.com/stevelacey/django-placeholdit.git#egg=DjangoPlaceholdit
 
-Alternatively, you can install from PyPi:
-
-::
-
-    $ pip install django-placeholdit
 
 Add django_placeholdit to your INSTALLED_APPS in settings.py:
 
@@ -43,7 +43,7 @@ Add django_placeholdit to your INSTALLED_APPS in settings.py:
         'django_placeholdit',
     )
 
-Add django_placeholdit routes into your urls.py:
+Add the routes into your urls.py, feel free to customise the prefix or namespace, no trailing slash:
 
 ::
 
@@ -54,6 +54,7 @@ Add django_placeholdit routes into your urls.py:
 
 Configuration
 -------------
+
 The following options can be configured in your settings.py:
 
 ``PLACEHOLDIT_CACHE_SECONDS`` # Number of seconds to cache placeholders. Defaults to `86400 * 7` (a week)
@@ -87,6 +88,7 @@ Resulting in:
 
 Contributing
 ------------
+
 Feel free to `fork django-placeholdit <https://github.com/stevelacey/django-placeholdit>`_
 on GitHub! I'd love to see your pull requests.
 
