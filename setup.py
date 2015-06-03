@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='django-placeholdit',
-    version='1.0.1',
+    version='1.0.2',
     description='A fully featured drop-in replacement of placehold.it for Django',
     long_description=open('README.rst').read(),
     keywords='django placeholder placehold.it',

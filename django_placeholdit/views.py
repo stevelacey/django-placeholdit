@@ -20,6 +20,7 @@ class PlaceholderView(View):
                 draw.fill_color = color
                 draw.font_size = width / 2
                 draw.text_alignment = 'center'
+                draw.text_encoding = 'UTF-8'
 
                 while True:
                     metrics = draw.get_font_metrics(image, text)
