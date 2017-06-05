@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.views.decorators.cache import cache_page
 from django_placeholdit import settings
 from django_placeholdit.views import PlaceholderView
@@ -18,7 +18,6 @@ kwargs = {
 }
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = patterns[
     url(r'^/{width}(?:x{height})?(?:\.{format})?(?:/{background}(?:/{color})?)?(?:&text={text})?$'.format(**kwargs), placeholder, name='placeholder'),
-)
+]
