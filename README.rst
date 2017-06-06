@@ -58,6 +58,7 @@ Configuration
 The following options can be configured in your settings.py:
 
 ``PLACEHOLDIT_CACHE_SECONDS`` # Number of seconds to cache placeholders. Defaults to `86400 * 7` (a week)
+``PLACEHOLDIT_FONT_PATH`` # FONT_PATH that locates the font to be used. e.g. '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'. Defaults to None
 
 Usage
 -----
