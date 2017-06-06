@@ -4,6 +4,7 @@ from django.views.generic import View
 from wand.color import Color
 from wand.drawing import Drawing
 from wand.image import Image
+from django_placeholdit import settings
 
 
 class PlaceholderView(View):
@@ -21,7 +22,8 @@ class PlaceholderView(View):
                 draw.font_size = width / 2
                 draw.text_alignment = 'center'
                 draw.text_encoding = 'UTF-8'
-
+                draw.font = settings.PLACEHOLDIT_FONT_PATH
+                
                 while True:
                     metrics = draw.get_font_metrics(image, text)
 
