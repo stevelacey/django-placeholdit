@@ -18,6 +18,6 @@ kwargs = {
 }
 
 
-urlpatterns = patterns[
+urlpatterns = [
     url(r'^/{width}(?:x{height})?(?:\.{format})?(?:/{background}(?:/{color})?)?(?:&text={text})?$'.format(**kwargs), placeholder, name='placeholder'),
 ]
