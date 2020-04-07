@@ -19,5 +19,5 @@ kwargs = {
 
 
 urlpatterns = patterns[
-    url(r'^/{width}(?:x{height})?(?:\.{format})?(?:/{background}(?:/{color})?)?(?:&text={text})?$'.format(**kwargs), placeholder, name='placeholder'),
+    url(r'^{width}(?:x{height})?(?:\.{format})?(?:/{background}(?:/{color})?)?(?:&text={text})?$'.format(**kwargs), placeholder, name='placeholder'),
 ]
