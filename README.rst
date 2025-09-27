@@ -25,7 +25,7 @@ You can pip install the app from PyPi (recommended):
 
 ::
 
-    $ pip install django-placeholdit
+    $ pip install django-placeholdit wand
 
 or GitHub:
 
@@ -49,7 +49,7 @@ Add the routes into your urls.py, feel free to customise the prefix or namespace
 
     urlpatterns = patterns(
         # ...
-        url(r'^placeholders/', include('django_placeholdit.urls', namespace='placeholdit')),
+        path('placeholders/', include('django_placeholdit.urls', namespace='placeholdit')),
     )
 
 Configuration
