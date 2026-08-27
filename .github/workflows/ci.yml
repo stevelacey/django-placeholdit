@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request: ~
+  push: ~
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: pipx install poetry
+      - uses: actions/setup-python@v7
+        with:
+          cache: poetry
+      - run: poetry install --only lint
+      - run: poetry run ruff check .
+
+  test:
+    name: Python ${{ matrix.python }} / Django ${{ matrix.django }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        django: ["5.2", "6.0", "6.1"]
+        exclude:
+          - { python: "3.10", django: "6.0" }
+          - { python: "3.10", django: "6.1" }
+          - { python: "3.11", django: "6.0" }
+          - { python: "3.11", django: "6.1" }
+    steps:
+      - uses: actions/checkout@v7
+
+      - run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev
+
+      - run: pipx install poetry
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+          cache: poetry
+
+      - run: poetry install --with test
+      - run: poetry run pip install "django==${{ matrix.django }}.*"
+
+      - run: poetry run pytest
+
+      - if: matrix.python == '3.14' && matrix.django == '6.1'
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
