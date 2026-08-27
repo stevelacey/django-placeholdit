@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import url
+from django.urls import re_path
 from django.views.decorators.cache import cache_page
 from django_placeholdit import settings
 from django_placeholdit.views import PlaceholderView
 
+app_name = "placeholdit"
 
 placeholder = cache_page(settings.PLACEHOLDIT_CACHE_SECONDS)(PlaceholderView.as_view())
-
 
 kwargs = {
     'width':      r'(?P<width>\d+)',
@@ -17,7 +17,10 @@ kwargs = {
     'text':       r'(?P<text>.*?)',
 }
 
-
-urlpatterns = patterns[
-    url(r'^{width}(?:x{height})?(?:\.{format})?(?:/{background}(?:/{color})?)?(?:&text={text})?$'.format(**kwargs), placeholder, name='placeholder'),
+urlpatterns = [
+    re_path(
+        r'^{width}(?:x{height})?(?:\.{format})?(?:/{background}(?:/{color})?)?(?:&text={text})?$'.format(**kwargs),
+        placeholder,
+        name='placeholder',
+    ),
 ]
